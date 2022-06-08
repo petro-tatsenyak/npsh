@@ -13,7 +13,6 @@ Download from here: https://docs.mongodb.com/manual/administration/install-commu
 ### 3. Run Backend
 
 ```
-$ cd backend
 $ npm install
 $ npm start
 ```
