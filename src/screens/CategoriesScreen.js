@@ -88,7 +88,7 @@ function ProductsScreen(props) {
               </li>
               <li>
                 {loadingSave && <div>Завантаження...</div>}
-                {errorSave && <div>{errorSave}</div>}
+                {errorSave && <div style={{ color: "red" }}>{errorSave}</div>}
               </li>
 
               <li>

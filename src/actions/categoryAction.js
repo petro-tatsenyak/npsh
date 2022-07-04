@@ -27,7 +27,7 @@ const createCategory = (category) => async (dispatch, getState) => {
             dispatch({ type: CATEGORY_CREATE_SUCCESS, payload: updated });
         }
     } catch (error) {
-        dispatch({ type: CATEGORY_CREATE_FAIL, payload: error.message });
+        dispatch({ type: CATEGORY_CREATE_FAIL, payload: error.response.data.message });
     }
 }
 
