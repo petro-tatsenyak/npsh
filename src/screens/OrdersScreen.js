@@ -14,9 +14,7 @@ function OrdersScreen() {
 
   useEffect(() => {
     dispatch(listOrders());
-    return () => {
-      //
-    };
+    return () => {};
   }, [successDelete]);
 
   const deleteHandler = (order) => {
