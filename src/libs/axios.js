@@ -1,5 +1,5 @@
 import axios from 'axios';
-import config from '../config';
+import { SERVER_URL } from '../config';
 
-const instance = axios.create({ baseURL: config.SERVER_URL });
+const instance = axios.create({ baseURL: SERVER_URL });
 export default instance
