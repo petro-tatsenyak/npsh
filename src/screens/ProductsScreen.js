@@ -7,6 +7,7 @@ import {
   listSellerProducts,
 } from '../actions/productActions';
 import {Box, FormControl, MenuItem, Select} from "@mui/material";
+import SimpleFileUpload from 'react-simple-file-upload'
 
 function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -78,26 +79,26 @@ function ProductsScreen(props) {
   const deleteHandler = (product) => {
     dispatch(deleteProdcut(product._id));
   };
-  const uploadFileHandler = (e) => {
-    const file = e.target.files[0];
-    const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
-    setUploading(true);
-    axios
-      .post('/api/uploads', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        setImage(response.data);
-        setUploading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setUploading(false);
-      });
-  };
+  // const uploadFileHandler = (e) => {
+  //   const file = e.target.files[0];
+  //   const bodyFormData = new FormData();
+  //   bodyFormData.append('image', file);
+  //   setUploading(true);
+  //   axios
+  //     .post('/api/uploads', bodyFormData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     })
+  //     .then((response) => {
+  //       setImage(response.data);
+  //       setUploading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setUploading(false);
+  //     });
+  // };
   return (
     <div className="content content-margined">
       <div className="product-header">
@@ -140,14 +141,14 @@ function ProductsScreen(props) {
               </li>
               <li>
                 <label htmlFor="image">Фото</label>
-                <input
+                <SimpleFileUpload
                   type="text"
                   name="image"
                   value={image}
                   id="image"
-                  onChange={(e) => setImage(e.target.value)}
-                ></input>
-                <input type="file" onChange={uploadFileHandler}></input>
+                  apiKey={""}
+                  onSuccess={(url) => setImage(url)}
+                />
                 {uploading && <div>Uploading...</div>}
               </li>
               <li>
