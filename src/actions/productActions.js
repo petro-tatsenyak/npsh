@@ -18,8 +18,7 @@ import {
   PRODUCT_SELLER_LIST_SUCCESS,
   PRODUCT_SELLER_LIST_FAIL
 } from '../constants/productConstants';
-import axios from 'axios';
-import Axios from 'axios';
+import axios from '../libs/axios';
 
 const listProducts = (
   category = '',
@@ -65,7 +64,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     if (!_id) {
-      const { data } = await Axios.post('/api/products', productData, {
+      const { data } = await axios.post('/api/products', productData, {
         headers: {
           Authorization: 'Bearer ' + userInfo.token,
         },
@@ -73,7 +72,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
       dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
     } else {
       console.log({ productData })
-      const { data } = await Axios.put(
+      const { data } = await axios.put(
         '/api/products/' + product._id,
           productData,
         {

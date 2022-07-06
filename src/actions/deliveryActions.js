@@ -1,4 +1,4 @@
-import Axios from "axios";
+import Axios from "../libs/axios";
 import {
     DELIVERY_CITIES, DELIVERY_WAREHOUSES, DELIVERY_PRICE, DELIVERY_STREETS, DELIVERY_FAILS, DELIVERY_LOADING
 } from "../constants/deliveryConstants";
