@@ -6,10 +6,7 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { createOrder } from '../actions/orderActions';
 import { DELIVERY_TYPES } from '../constants/deliveryConstants';
 import {getPrice} from "../actions/deliveryActions";
-
 import config from '../config';
-
-const { IMAGE_LINK } = config;
 
 const { SELF_PICKUP } = DELIVERY_TYPES;
 
@@ -95,7 +92,7 @@ function PlaceOrderScreen(props) {
                 cartItems.map(item =>
                   <li>
                     <div className="cart-image">
-                      <img src={`${IMAGE_LINK}${item.image}`} alt="product" />
+                      <img src={`${config.IMAGE_LINK}${item.image}`} alt="product" />
                     </div>
                     <div className="cart-name">
                       <div>

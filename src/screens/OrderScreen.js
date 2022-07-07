@@ -3,10 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { detailsOrder } from '../actions/orderActions';
 import { DELIVERY_TYPES } from '../constants/deliveryConstants';
-
 import config from '../config';
-
-const { IMAGE_LINK } = config;
 
 const { SELF_PICKUP } = DELIVERY_TYPES;
 
@@ -69,7 +66,7 @@ function OrderScreen(props) {
                   order.orderItems.map(item =>
                     <li key={item._id}>
                       <div className="cart-image">
-                        <img src={`${IMAGE_LINK}${item.image}`} alt="product" />
+                        <img src={`${config.IMAGE_LINK}${item.image}`} alt="product" />
                       </div>
                       <div className="cart-name">
                         <div>

@@ -5,9 +5,6 @@ import { listProducts } from '../actions/productActions';
 import Rating from '../components/Rating';
 import config from '../config';
 
-const { IMAGE_LINK } = config;
-
-
 function HomeScreen(props) {
   const [searchKeyword, setSearchKeyword] = useState('');
   const [sortOrder, setSortOrder] = useState('');
@@ -67,7 +64,7 @@ function HomeScreen(props) {
                 <Link to={'/product/' + product._id}>
                   <img
                     className="product-image"
-                    src={`${IMAGE_LINK}${product.image}`}
+                    src={`${config.IMAGE_LINK}${product.image}`}
                     alt="product"
                   />
                 </Link>

@@ -6,8 +6,6 @@ import Rating from '../components/Rating';
 import { PRODUCT_REVIEW_SAVE_RESET } from '../constants/productConstants';
 import config from '../config';
 
-const { IMAGE_LINK } = config;
-
 function ProductScreen(props) {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
@@ -60,7 +58,7 @@ function ProductScreen(props) {
         <>
           <div className="details">
             <div className="details-image">
-              <img src={`${IMAGE_LINK}${product.image}`} alt="product"></img>
+              <img src={`${config.IMAGE_LINK}${product.image}`} alt="product"></img>
             </div>
             <div className="details-info">
               <ul>

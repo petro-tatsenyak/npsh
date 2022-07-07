@@ -4,9 +4,6 @@ import axios from '../libs/axios';
 import {listCategories, createCategory} from "../actions/categoryAction";
 import config from '../config';
 
-const { IMAGE_LINK } = config;
-
-
 function ProductsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState('');
@@ -159,7 +156,7 @@ function ProductsScreen(props) {
             {categories.map((category) => (
               <tr key={category._id}>
                 <td>
-                  <img src={`${IMAGE_LINK}${category.image}`} alt="category" style={{ height: '30px'}}></img></td>
+                  <img src={`${config.IMAGE_LINK}${category.image}`} alt="category" style={{ height: '30px'}}></img></td>
                 <td>{category.name}</td>
                 <td>{category.description}</td>
                 <td>
