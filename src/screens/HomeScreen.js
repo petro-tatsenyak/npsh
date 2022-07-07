@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Rating from '../components/Rating';
+import config from '../config';
+
+const { IMAGE_LINK } = config;
+
 
 function HomeScreen(props) {
   const [searchKeyword, setSearchKeyword] = useState('');
@@ -63,7 +67,7 @@ function HomeScreen(props) {
                 <Link to={'/product/' + product._id}>
                   <img
                     className="product-image"
-                    src={product.image}
+                    src={`${IMAGE_LINK}${product.image}`}
                     alt="product"
                   />
                 </Link>
